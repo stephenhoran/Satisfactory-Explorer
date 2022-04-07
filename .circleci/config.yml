@@ -20,7 +20,7 @@ jobs:
             - ./node_modules
       - run:
           name: build vue
-          command: npm build
+          command: npm run build
       - run:
           name: Install gh-pages and configure git
           command: |
