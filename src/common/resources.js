@@ -1,14 +1,34 @@
 const Ores = {
-  Limestone: {},
-  Copper: {},
-  Iron: {},
-  Caterium: {},
-  Coal: {},
-  "Raw Quartz": {},
-  Sulfur: {},
-  Bauxite: {},
-  "S.A.M Ore": {},
-  Uranium: {},
+  Limestone: {
+    img: "../assets/Icon_Stone_256.png",
+  },
+  Iron: {
+    img: "../assets/Icon_Iron_Ore_256.png",
+  },
+  Copper: {
+    img: "../assets/Icon_Copper_Ore_256.png",
+  },
+  Caterium: {
+    img: "../assets/Icon_Caterium_Ore_256.png",
+  },
+  Coal: {
+    img: "../assets/Icon_Coal_Ore_256.png",
+  },
+  "Raw Quartz": {
+    img: "../assets/Icon_Quartz_Crystal_256.png",
+  },
+  Sulfur: {
+    img: "../assets/Icon_Sulfur_256.png",
+  },
+  Bauxite: {
+    img: "../assets/Icon_Bauxite_256.png",
+  },
+  "S.A.M Ore": {
+    img: "../assets/Icon_SAM_Ore_256.png",
+  },
+  Uranium: {
+    img: "../assets/Icon_Uranium_Ore_256.png",
+  },
 };
 
 const Ingots = {
