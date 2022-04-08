@@ -1,27 +1,39 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      - image: circleci/node
-    steps:
-      - checkout
-      - run:
-          name: update-npm
-          command: "sudo npm install -g npm"
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: install-packages
-          command: npm install
-      - run:
-          name: build vue
-          command: npm run build
-      - run:
-          name: Install gh-pages and configure git
-          command: |
-            npm install gh-pages --save-dev
-            git config user.email "horan116@gmail.com"
-            git config user.name "stephenhoran"
-      - run:
-          name: Deploy build to gh-pages branch
-          command: './node_modules/.bin/gh-pages --dotfiles --message "Deployment from $CIRCLE_SHA1" -d dist'
+build_and_deploy:
+  jobs:
+    - build:
+        docker:
+          - image: circleci/node
+        steps:
+          - checkout
+          - run:
+              name: update-npm
+              command: "sudo npm install -g npm"
+          - restore_cache:
+              key: dependency-cache-{{ checksum "package-lock.json" }}
+          - run:
+              name: install-packages
+              command: npm install
+          - run:
+              name: build vue
+              command: npm run build
+        filters:
+          branches:
+            only:
+              - master
+    - deploy:
+        requires: build
+        steps:
+          - run:
+              name: Install gh-pages and configure git
+              command: |
+                npm install gh-pages --save-dev
+                git config user.email "horan116@gmail.com"
+                git config user.name "stephenhoran"
+          - run:
+              name: Deploy build to gh-pages branch
+              command: './node_modules/.bin/gh-pages --dotfiles --message "Deployment from $CIRCLE_SHA1" -d dist'
+        filters:
+          branches:
+            only:
+              - master
