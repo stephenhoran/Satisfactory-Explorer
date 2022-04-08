@@ -3,7 +3,7 @@ jobs:
   build_and_deploy_master:
     resource_class: medium
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node
     steps:
       - checkout
       - run:
