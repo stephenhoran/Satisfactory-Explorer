@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
+import ProductionCalculator from "@/components/ResourceSelector.vue";
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <ProductionCalculator />
   </main>
 </template>
