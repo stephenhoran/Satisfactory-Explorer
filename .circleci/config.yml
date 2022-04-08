@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  build_and_deploy_master:
     docker:
       - image: circleci/node
     steps:
@@ -25,6 +25,11 @@ jobs:
       - run:
           name: Deploy build to gh-pages branch
           command: './node_modules/.bin/gh-pages --dotfiles --message "Deployment from $CIRCLE_SHA1" -d dist'
-    branches:
-      only:
-        - master
+workflows:
+  build_and_deploy_master:
+    jobs:
+      - build_and_deploy_master
+          filter:
+            branches:
+              only:
+                - master
