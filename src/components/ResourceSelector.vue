@@ -23,6 +23,7 @@ onMounted(() => {
       >
         <template #content>
           <Image :src="imageModules[item.img].default" />
+          Dan was here
         </template>
       </Card>
     </div>
