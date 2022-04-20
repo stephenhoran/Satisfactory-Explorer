@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Ores, Ingots, Minerals, Liquids } from '@/common/resources';
+import { Ores, Ingots, Minerals, Liquids, Resource } from "@/common/resources";
 import { onMounted, ref } from "vue";
 
 const imageModules = import.meta.globEager("@/assets/*.png");
 
-const addToActiveItems = (newItem: string): void => {
-  console.log(newItem);
-}
+const addToActiveItems = (newResource: Resource): void => {
+  console.log(newResource);
+};
 
 onMounted(() => {
   console.log(imageModules);
@@ -18,12 +18,11 @@ onMounted(() => {
     <div class="flex flex-wrap">
       <Card
         style="width: 15em"
-        v-for="(item, key) in Ores"
-        @click="addToActiveItems(key)"
+        v-for="ore in Ores"
+        @click="addToActiveItems(ore)"
       >
         <template #content>
-          <Image :src="imageModules[item.img].default" />
-          Dan was here
+          <Image :src="imageModules[ore.img].default" />
         </template>
       </Card>
     </div>
@@ -31,9 +30,13 @@ onMounted(() => {
 
   <Panel header="Ingots" :toggleable="true">
     <div class="flex flex-wrap">
-      <Card style="width: 15em" v-for="(item, key) in Ingots">
-        <template #title>
-          {{ key }}
+      <Card
+        style="width: 15em"
+        v-for="ingot in Ingots"
+        @click="addToActiveItems(ingot)"
+      >
+        <template #content>
+          <Image :src="imageModules[ingot.img].default" />
         </template>
       </Card>
     </div>
@@ -41,9 +44,13 @@ onMounted(() => {
 
   <Panel header="Minerals" :toggleable="true">
     <div class="flex flex-wrap">
-      <Card style="width: 15em" v-for="(item, key) in Minerals">
-        <template #title>
-          {{ key }}
+      <Card
+        style="width: 15em"
+        v-for="mineral in Minerals"
+        @click="addToActiveItems(mineral)"
+      >
+        <template #content>
+          <Image :src="imageModules[mineral.img].default" />
         </template>
       </Card>
     </div>
@@ -51,9 +58,13 @@ onMounted(() => {
 
   <Panel header="Liquids" :toggleable="true">
     <div class="flex flex-wrap">
-      <Card style="width: 15em" v-for="(item, key) in Liquids">
-        <template #title>
-          {{ key }}
+      <Card
+        style="width: 15em"
+        v-for="liquid in Liquids"
+        @click="addToActiveItems(liquid)"
+      >
+        <template #content>
+          <Image :src="imageModules[liquid.img].default" />
         </template>
       </Card>
     </div>
