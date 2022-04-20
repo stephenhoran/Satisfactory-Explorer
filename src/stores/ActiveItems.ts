@@ -1,3 +1,4 @@
+// @ts-ignore
 import { defineStore } from "pinia";
 import { Resource } from "@/common/resources";
 
@@ -17,14 +18,14 @@ export const useActiveItems = defineStore("ActiveItems", {
     removeActiveItem(item: Resource): void {
       // Remove item if it exists
       this.activeItems = this.activeItems.filter(
-        (items) => items.name !== item.name
+        (items: Resource) => items.name !== item.name
       );
     },
   },
   getters: {
     // return list of active items
-    getActiveItems(): Resource[] {
-      return this.activeItems;
+    getActiveItems(state: Resource[]): Resource[] {
+      return state;
     },
   },
 });

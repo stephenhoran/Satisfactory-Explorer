@@ -8,14 +8,6 @@ const imageModules = import.meta.globEager("@/assets/*.png");
 
 //store constants
 const activeItemsStore = useActiveItems();
-
-const addToActiveItems = (newResource: Resource): void => {
-  console.log(newResource);
-};
-
-onMounted(() => {
-  console.log(imageModules);
-});
 </script>
 
 <template>
