@@ -1,10 +1,10 @@
-<script setup>
-import { Ores, Ingots, Minerals, Liquids } from "@/common/resources.ts";
+<script setup lang="ts">
+import { Ores, Ingots, Minerals, Liquids } from "@/common/resources";
 import { onMounted, ref } from "vue";
 
 const imageModules = import.meta.globEager("@/assets/*.png");
 
-function addToActiveItems(newItem) {
+const addToActiveItems = (newItem: string): void => {
   console.log(newItem);
 }
 
