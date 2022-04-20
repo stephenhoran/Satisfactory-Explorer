@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Ores, Ingots, Minerals, Liquids } from "@/common/resources";
+import { Ores, Ingots, Minerals, Liquids } from '@/common/resources';
 import { onMounted, ref } from "vue";
 
 const imageModules = import.meta.globEager("@/assets/*.png");
@@ -28,6 +28,7 @@ onMounted(() => {
       </Card>
     </div>
   </Panel>
+
   <Panel header="Ingots" :toggleable="true">
     <div class="flex flex-wrap">
       <Card style="width: 15em" v-for="(item, key) in Ingots">
@@ -37,6 +38,7 @@ onMounted(() => {
       </Card>
     </div>
   </Panel>
+
   <Panel header="Minerals" :toggleable="true">
     <div class="flex flex-wrap">
       <Card style="width: 15em" v-for="(item, key) in Minerals">
@@ -46,6 +48,7 @@ onMounted(() => {
       </Card>
     </div>
   </Panel>
+
   <Panel header="Liquids" :toggleable="true">
     <div class="flex flex-wrap">
       <Card style="width: 15em" v-for="(item, key) in Liquids">
