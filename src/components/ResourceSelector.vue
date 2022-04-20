@@ -1,5 +1,5 @@
 <script setup>
-import { Ores, Ingots, Minerals, Liquids } from "@/common/resources.js";
+import { Ores, Ingots, Minerals, Liquids } from "@/common/resources.ts";
 import { onMounted, ref } from "vue";
 
 const imageModules = import.meta.globEager("@/assets/*.png");
