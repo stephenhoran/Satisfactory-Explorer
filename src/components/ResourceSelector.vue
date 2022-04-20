@@ -23,11 +23,15 @@ onMounted(() => {
     <div class="flex flex-wrap">
       <Card
         style="width: 15em"
+        class="p-link"
         v-for="ore in Ores"
         @click="activeItemsStore.addActiveItem(ore)"
       >
-        <template #content>
+        <template #header>
           <Image :src="imageModules[ore.img].default" />
+        </template>
+        <template #title>
+          <p style="text-align: center">{{ ore.name }}</p>
         </template>
       </Card>
     </div>
@@ -37,11 +41,15 @@ onMounted(() => {
     <div class="flex flex-wrap">
       <Card
         style="width: 15em"
+        class="p-link"
         v-for="ingot in Ingots"
         @click="activeItemsStore.addActiveItem(ingot)"
       >
-        <template #content>
+        <template #header>
           <Image :src="imageModules[ingot.img].default" />
+        </template>
+        <template #title>
+          <p style="text-align: center">{{ ingot.name }}</p>
         </template>
       </Card>
     </div>
@@ -51,11 +59,15 @@ onMounted(() => {
     <div class="flex flex-wrap">
       <Card
         style="width: 15em"
+        class="p-link"
         v-for="mineral in Minerals"
         @click="activeItemsStore.addActiveItem(mineral)"
       >
-        <template #content>
+        <template #header>
           <Image :src="imageModules[mineral.img].default" />
+        </template>
+        <template #title>
+          <p style="text-align: center">{{ mineral.name }}</p>
         </template>
       </Card>
     </div>
@@ -65,15 +77,23 @@ onMounted(() => {
     <div class="flex flex-wrap">
       <Card
         style="width: 15em"
+        class="p-link"
         v-for="liquid in Liquids"
         @click="activeItemsStore.addActiveItem(liquid)"
       >
-        <template #content>
+        <template #header>
           <Image :src="imageModules[liquid.img].default" />
+        </template>
+        <template #title>
+          <p style="text-align: center">{{ liquid.name }}</p>
         </template>
       </Card>
     </div>
   </Panel>
 </template>
 
-<style scoped></style>
+<style scoped>
+.p-card {
+  box-shadow: unset;
+}
+</style>
