@@ -34,20 +34,6 @@ onMounted(() => {
     </div>
   </Panel>
 
-  <Panel header="Ores" :toggleable="true">
-    <div class="flex flex-wrap">
-      <Card
-        style="width: 15em"
-        v-for="ore in Ores"
-        @click="activeItemsStore.removeActiveItem(ore)"
-      >
-        <template #content>
-          <Image :src="imageModules[ore.img].default" />
-        </template>
-      </Card>
-    </div>
-  </Panel>
-
   <Panel header="Ingots" :toggleable="true">
     <div class="flex flex-wrap">
       <Card
