@@ -19,7 +19,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <p>{{ activeItemsStore.getActiveItems }}</p>
   <Panel header="Ores" :toggleable="true">
     <div class="flex flex-wrap">
       <Card
