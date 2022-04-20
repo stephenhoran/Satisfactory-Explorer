@@ -2,7 +2,12 @@
 import { Ores, Ingots, Minerals, Liquids, Resource } from "@/common/resources";
 import { onMounted, ref } from "vue";
 
+import { useActiveItems } from "@/stores/ActiveItems";
+
 const imageModules = import.meta.globEager("@/assets/*.png");
+
+//store constants
+const activeItemsStore = useActiveItems();
 
 const addToActiveItems = (newResource: Resource): void => {
   console.log(newResource);
@@ -14,12 +19,27 @@ onMounted(() => {
 </script>
 
 <template>
+  <p>{{ activeItemsStore.getActiveItems }}</p>
   <Panel header="Ores" :toggleable="true">
     <div class="flex flex-wrap">
       <Card
         style="width: 15em"
         v-for="ore in Ores"
-        @click="addToActiveItems(ore)"
+        @click="activeItemsStore.addActiveItem(ore)"
+      >
+        <template #content>
+          <Image :src="imageModules[ore.img].default" />
+        </template>
+      </Card>
+    </div>
+  </Panel>
+
+  <Panel header="Ores" :toggleable="true">
+    <div class="flex flex-wrap">
+      <Card
+        style="width: 15em"
+        v-for="ore in Ores"
+        @click="activeItemsStore.removeActiveItem(ore)"
       >
         <template #content>
           <Image :src="imageModules[ore.img].default" />
@@ -33,7 +53,7 @@ onMounted(() => {
       <Card
         style="width: 15em"
         v-for="ingot in Ingots"
-        @click="addToActiveItems(ingot)"
+        @click="activeItemsStore.addActiveItem(ingot)"
       >
         <template #content>
           <Image :src="imageModules[ingot.img].default" />
@@ -47,7 +67,7 @@ onMounted(() => {
       <Card
         style="width: 15em"
         v-for="mineral in Minerals"
-        @click="addToActiveItems(mineral)"
+        @click="activeItemsStore.addActiveItem(mineral)"
       >
         <template #content>
           <Image :src="imageModules[mineral.img].default" />
@@ -61,7 +81,7 @@ onMounted(() => {
       <Card
         style="width: 15em"
         v-for="liquid in Liquids"
-        @click="addToActiveItems(liquid)"
+        @click="activeItemsStore.addActiveItem(liquid)"
       >
         <template #content>
           <Image :src="imageModules[liquid.img].default" />

@@ -1,6 +1,6 @@
 interface Resource {
-  name: string;
-  img: string;
+  name: string | null;
+  img: string | null;
 }
 
 const Ores: Resource[] = [
