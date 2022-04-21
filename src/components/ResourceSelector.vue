@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Ores, Ingots, Minerals, Liquids, Resource } from "@/common/resources";
-import { onMounted, ref } from "vue";
+import { defineProps } from "vue";
 
 import { useActiveItems } from "@/stores/ActiveItems";
 
@@ -8,6 +8,11 @@ const imageModules = import.meta.globEager("@/assets/*.png");
 
 //store constants
 const activeItemsStore = useActiveItems();
+
+const handleClick = (resource: Resource): void => {
+  activeItemsStore.addActiveItem(resource);
+  emit.
+};
 </script>
 
 <template>

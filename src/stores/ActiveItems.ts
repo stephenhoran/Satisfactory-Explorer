@@ -1,4 +1,3 @@
-// @ts-ignore
 import { defineStore } from "pinia";
 import { Resource } from "@/common/resources";
 
@@ -24,8 +23,8 @@ export const useActiveItems = defineStore("ActiveItems", {
   },
   getters: {
     // return list of active items
-    getActiveItems(state: Resource[]): Resource[] {
-      return state;
+    getActiveItems(): Resource[] {
+      return this.activeItems;
     },
   },
 });

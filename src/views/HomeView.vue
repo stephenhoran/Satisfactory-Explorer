@@ -1,5 +1,5 @@
 <script setup>
-import ProductionCalculator from "@/components/ResourceSelector.vue";
+import ProductionCalculator from "@/components/InputResources.vue";
 </script>
 
 <template>

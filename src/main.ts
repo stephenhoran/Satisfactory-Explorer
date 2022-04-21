@@ -13,6 +13,10 @@ import "primeflex/primeflex.css";
 import Panel from "primevue/panel";
 import Card from "primevue/card";
 import Image from "primevue/image";
+import TabView from "primevue/tabview";
+import TabPanel from "primevue/tabpanel";
+import Button from "primevue/button";
+import Dialog from "primevue/dialog";
 
 const app = createApp(App);
 
@@ -23,5 +27,9 @@ app.use(PrimeVue);
 app.component("Panel", Panel);
 app.component("Card", Card);
 app.component("Image", Image);
+app.component("TabView", TabView);
+app.component("TabPanel", TabPanel);
+app.component("Button", Button);
+app.component("Dialog", Dialog);
 
 app.mount("#app");
